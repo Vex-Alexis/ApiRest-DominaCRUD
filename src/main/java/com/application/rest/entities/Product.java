@@ -23,4 +23,9 @@ public class Product {
 
     @Column(name = "precio")
     private BigDecimal price;
+
+    // Creamos el atributo "maker" para tomar la llave foranea
+    @ManyToOne
+    @JoinColumn(name = "id_fabricante", nullable = false)
+    private Maker maker;
 }
