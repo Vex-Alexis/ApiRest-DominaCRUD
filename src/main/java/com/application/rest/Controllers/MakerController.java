@@ -50,8 +50,8 @@ public class MakerController {
                         .id(maker.getId())
                         .name(maker.getName())
                         .productList(maker.getProductList())
-                        .build())
-                .toList();
+                        .build()
+                ).toList();
         return ResponseEntity.ok(makerList);
     }
 

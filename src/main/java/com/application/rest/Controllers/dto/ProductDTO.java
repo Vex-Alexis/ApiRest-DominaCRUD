@@ -1,10 +1,6 @@
 package com.application.rest.Controllers.dto;
 
 import com.application.rest.entities.Maker;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.Column;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,7 +12,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ProductDAO {
+public class ProductDTO {
 
     private Long id;
     private String name;
