@@ -59,16 +59,27 @@ public class MakerController {
     public ResponseEntity<?> save(@RequestBody MakerDTO makerDTO) throws URISyntaxException {
 
         if(makerDTO.getName().isBlank()){
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.badRequest().body("El nombre no puede estar en blanco");
         }
+        Maker maker = Maker.builder()
+                        .name(makerDTO.getName())
+
+                        .build();
+
+        makerService.save(maker);
+/**
+        Alternativa simplificada para guardar el la entidad
         makerService.save(Maker.builder()
                 .name(makerDTO.getName())
                 .build());
-        return ResponseEntity.created(new URI("/api/v1/maker")).build();
+ **/
+
+/**     Utilizar body para incluir mensaje, Si no se necesita un mensaje en el cuerpo, utilizar build para crear una respuesta sin cuerpo adicional **/
+        return ResponseEntity.created(new URI("/api/v1/maker")).body("El fabricante ha sido creado");
     }
 
-    @PutMapping("/update")
-    public ResponseEntity<?> updateById(@PathVariable Long id, MakerDTO makerDTO){
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateById(@PathVariable Long id, @RequestBody MakerDTO makerDTO){
 
         Optional<Maker> makerOptional = makerService.finById(id);
 

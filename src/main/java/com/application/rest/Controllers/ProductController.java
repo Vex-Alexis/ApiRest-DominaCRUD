@@ -71,8 +71,8 @@ public class ProductController {
         return ResponseEntity.created(new URI("/api/v1/product")).build();
     }
 
-    @PutMapping("/update")
-    public ResponseEntity<?> updateById(@PathVariable Long id, ProductDTO productDTO){
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateById(@PathVariable Long id, @RequestBody ProductDTO productDTO){
 
         Optional<Product> productOptional = productService.findById(id);
 
