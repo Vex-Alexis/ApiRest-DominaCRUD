@@ -21,7 +21,7 @@ public class Maker {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "nombre_fabricante")
+    @Column(name = "nombre")
     private String name;
 
     // Mapeamos la llave foranea con el atributo "maker" en la entidad Product
