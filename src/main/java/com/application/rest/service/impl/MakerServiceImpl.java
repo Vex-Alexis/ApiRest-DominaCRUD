@@ -1,6 +1,7 @@
 package com.application.rest.service.impl;
 
 import com.application.rest.entities.Maker;
+import com.application.rest.persistence.IMakerDAO;
 import com.application.rest.service.IMakerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,27 +13,27 @@ import java.util.Optional;
 public class MakerServiceImpl implements IMakerService {
 
     @Autowired
-    private IMakerService makerService;
+    private IMakerDAO makerDAO;
 
     @Override
     public List<Maker> findAll() {
-        return makerService.findAll();
+        return makerDAO.findAll();
     }
 
     @Override
     public Optional<Maker> finById(Long id) {
-        return makerService.finById(id);
+        return makerDAO.finById(id);
     }
 
     @Override
     public void save(Maker maker) {
-        makerService.save(maker);
+        makerDAO.save(maker);
 
     }
 
     @Override
-    public void deleteMakerById(Long id) {
-        makerService.deleteMakerById(id);
-
+    public void deleteById(Long id) {
+        makerDAO.deleteById(id);
     }
+
 }

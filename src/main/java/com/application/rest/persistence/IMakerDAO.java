@@ -13,6 +13,6 @@ public interface IMakerDAO {
 
     void save(Maker maker);
 
-    void deleteMakerById(Long id);
+    void deleteById(Long id);
 
 }
